@@ -3,74 +3,594 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contentia Creative: Building durable digital infrastructure for the SLC Missing Middle. SEO-first, AI-visible systems that compound.">
-    <title>Hunter Newbold | Contentia Creative</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Hunter Newbold | AI Implementation Specialist & Technical Trainer</title>
+    <meta name="description" content="Technical portfolio for Hunter Newbold. Specializing in AI Automation, User Documentation, and Customer Success Engineering. Bridging the gap between engineering and adoption.">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Palette: "The Lion's Share" (Enterprise Tech Edition) */
+            --honolulu-blue: #0076B6;
+            --honolulu-bright: #0088D4;
+            --silver: #B0B7BC;
+            --silver-dim: #8A9196;
+            --white: #FFFFFF;
+            --gridiron-black: #04070B;
+            
+            /* Light Mode Defaults */
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8F9FA;
+            --bg-card: #FFFFFF;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --border-color: #E0E0E0;
+            --code-bg: #F1F3F5;
+
+            /* Typography */
+            --f-heading: 'Inter', sans-serif;
+            --f-body: 'Roboto', sans-serif;
+            --f-mono: 'JetBrains Mono', monospace;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #04070B;
+            --bg-secondary: #0D1116;
+            --bg-card: #0D1116;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B7BC;
+            --border-color: rgba(176,183,188,0.15);
+            --code-bg: #161B22;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--f-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(var(--bg-primary), 0.95); /* translucent fallback if needed, relying on color mix */
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            font-family: var(--f-heading);
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: var(--honolulu-blue);
+            text-decoration: none;
+            letter-spacing: -0.05em;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.5rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            transition: all 0.2s;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--honolulu-blue);
+            color: var(--honolulu-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 8rem 5% 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-family: var(--f-heading);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-content .highlight { color: var(--honolulu-blue); }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--honolulu-blue);
+            color: var(--white);
+            border: 2px solid var(--honolulu-blue);
+        }
+
+        .btn-primary:hover {
+            background: var(--honolulu-bright);
+            border-color: var(--honolulu-bright);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--honolulu-blue);
+            color: var(--honolulu-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Visual (Code Block) */
+        .hero-visual {
+            background: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-family: var(--f-mono);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-visual::before {
+            content: "Technical_Closer_Logic.js";
+            display: block;
+            margin-bottom: 1rem;
+            color: var(--honolulu-blue);
+            font-weight: 700;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Core Competencies Bar (ATS Keywords) */
+        .competencies {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 2rem 5%;
+        }
+
+        .comp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .comp-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .comp-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Sections Generic */
+        section { padding: 5rem 5%; max-width: 1400px; margin: 0 auto; }
+        
+        .section-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: var(--f-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        /* About */
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .mission-box {
+            margin-top: 2rem;
+            background: rgba(0, 118, 182, 0.05);
+            border-left: 4px solid var(--honolulu-blue);
+            padding: 1.5rem;
+            font-style: italic;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--honolulu-blue);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .role-badge {
+            display: inline-block;
+            background: var(--bg-secondary);
+            color: var(--honolulu-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            align-self: flex-start;
+            border: 1px solid var(--border-color);
+        }
+
+        .project-title { margin-bottom: 1rem; font-size: 1.5rem; }
+
+        .project-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            font-family: var(--f-mono);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-secondary);
+        }
+
+        .result-box {
+            background: rgba(0, 118, 182, 0.05);
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 3px solid var(--honolulu-blue);
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Skills / Armory */
+        .armory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-col h3 {
+            color: var(--honolulu-blue);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .skill-list li {
+            list-style: none;
+            margin-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        .skill-list li strong { color: var(--text-primary); }
+
+        /* Footer */
+        footer {
+            background: var(--gridiron-black);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 5%;
+        }
+
+        .footer-cta {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-details a {
+            color: var(--honolulu-blue);
+            text-decoration: none;
+        }
+        
+        .contact-details a:hover { color: var(--honolulu-bright); }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .social-links a { color: var(--silver); text-decoration: none; transition: color 0.2s; }
+        .social-links a:hover { color: var(--honolulu-blue); }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; padding-top: 6rem; gap: 2rem; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-visual { display: none; } /* Hide code block on mobile to save space */
+        }
+    </style>
 </head>
 <body>
-    <div class="grid-bg"></div>
-    
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">H.K.N. <span class="blink">_</span></a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">/Home</a></li>
-                <li><a href="work.html">/Systems</a></li>
-                <li><a href="contact.html">/Initiate</a></li>
-            </ul>
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
+
+    <nav>
+        <a href="#" class="nav-brand">HN</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">🌙</button>
     </nav>
 
-    <header class="hero">
-        <div class="container">
-            <p class="tagline mono">System Builder, Not a Creative Vendor</p>
-            <h1>Building <span class="highlight">Durable Infrastructure</span> That Compounds.</h1>
-            <p class="hero-sub">Traffic isn’t the issue—lead ingestion is. I design SEO-first, AI-visible systems that turn local presence into predictable growth for the "Missing Middle."</p>
-            <div class="cta-group">
-                <a href="work.html" class="btn btn-primary">Deploy a System</a>
-                <a href="contact.html" class="btn btn-secondary">Audit Protocol</a>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hunter Newbold<br><span class="highlight">AI Implementation Specialist</span> & Technical Trainer</h1>
+            <p class="hero-subtitle">Bridging the gap between complex engineering capabilities and business outcomes. From architecting automations to designing the training materials that scale them.</p>
+            <div class="btn-group">
+                <a href="RESUMEHUNTERTECHNICALFEB2026.PDF.pdf" class="btn btn-primary" download>
+                    Download Resume (PDF)
+                </a>
+                <a href="#projects" class="btn btn-outline">View Systems Architecture</a>
             </div>
         </div>
-    </header>
+        
+        <div class="hero-visual">
+            <pre>
+class Implementation_Specialist:
+    def __init__(self):
+        self.skills = ["AI Agents", "API Integration", "L&D"]
+        self.focus = "Adoption & Success"
 
-    <section class="philosophy">
-        <div class="container">
-            <header class="section-header">
-                <h2 class="mono-heading">// Operating Thesis</h2>
-            </header>
-            <div class="grid-3">
-                <div class="card">
-                    <h3 class="mono">01. Production-Grade</h3>
-                    <p>Static-first performance (Astro/Netlify). Git-based governance. Clean data pipelines that prioritize leads over vanity metrics.</p>
+    def bridge_gap(self, tech, user):
+        # Translate code to business value
+        documentation = self.create_sops(tech)
+        adoption_rate = self.train_users(user, documentation)
+        
+        return {
+            "efficiency": "+95%",
+            "status": "Scalable",
+            "risk": "Mitigated"
+        }
+            </pre>
+        </div>
+    </section>
+
+    <div class="competencies">
+        <div class="comp-grid">
+            <div class="comp-item">
+                <h3>Technical Implementation</h3>
+                <p>AI Agents, API Integration (Postman), Python/Low-Code</p>
+            </div>
+            <div class="comp-item">
+                <h3>Training & Enablement</h3>
+                <p>SOPs, Visual Identity Kits, User Onboarding, L&D</p>
+            </div>
+            <div class="comp-item">
+                <h3>Business Strategy</h3>
+                <p>Customer Success, ROI Analysis, Answer Engine Optimization (AEO)</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="about">
+        <div class="section-header">
+            <h2 class="section-title">The <span style="color: var(--honolulu-blue);">Technical Closer</span></h2>
+        </div>
+        <div class="about-text">
+            <p>I am a hybrid technical professional blending Sales Engineering (Soft Skills) with AI/Automation (Hard Skills).</p>
+            <p style="margin-top: 1rem;">In a market flooded with generalists, I operate as an Implementation Specialist. My background spans from executing needs analysis at Imagine Tech to architecting full-stack AI solutions for local businesses. I don't just build the tool; I write the manual and train the team.</p>
+            <div class="mission-box">
+                My Mission: To translate technical complexity into clear, actionable business value.
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-header">
+            <h2 class="section-title">Proof of <span style="color: var(--honolulu-blue);">Work</span></h2>
+            <p>Select case studies demonstrating technical architecture and documentation capabilities.</p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <span class="role-badge">Systems Analyst</span>
+                <h3 class="project-title">Lead Qualification & Data Pipeline</h3>
+                <p class="project-desc">Engineered a logic-based qualification pipeline using search heuristics and "Digital Trust Signals" to automate the discovery process.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Postman</span>
+                    <span class="tech-tag">API Testing</span>
+                    <span class="tech-tag">Data Scraping</span>
                 </div>
-                <div class="card">
-                    <h3 class="mono">02. AI-Visible</h3>
-                    <p>Optimizing for machines and humans. We target citation and synthesis within AI neural networks (AEO & GEO).</p>
+                <div class="result-box">
+                    Result: Generated 15+ qualified leads in &lt;48 hours, removing manual filtering.
                 </div>
-                <div class="card">
-                    <h3 class="mono">03. Ownership</h3>
-                    <p>Stop renting effort. Start owning infrastructure. No monthly retainer traps, just high-fidelity assets you control.</p>
+            </div>
+
+            <div class="project-card">
+                <span class="role-badge">Implementation Specialist</span>
+                <h3 class="project-title">AI Customer Success Agent</h3>
+                <p class="project-desc">Architected a "Human-in-the-Loop" AI Agent to monitor and draft context-aware responses to reviews, ensuring brand voice consistency.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">AI Agents</span>
+                    <span class="tech-tag">Workflow Design</span>
+                </div>
+                <div class="result-box">
+                    Result: Reduced response latency by 95% and created the "User Manual" for staff oversight.
+                </div>
+            </div>
+
+            <div class="project-card" style="border-color: var(--honolulu-blue);">
+                <span class="role-badge">Technical Trainer & Architect</span>
+                <h3 class="project-title">Systems Architecture & Knowledge Mgmt</h3>
+                <p class="project-desc">Developed the "Contentia Ecosystem"—a "Business-in-a-Box" OS. Created standardized SOPs, Brand Manuals, and Visual Identity Kits to scale operations without headcount.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">SOPs</span>
+                    <span class="tech-tag">L&D</span>
+                    <span class="tech-tag">Documentation</span>
+                    <span class="tech-tag">Product Photo Workflow</span>
+                </div>
+                <div class="result-box">
+                    Result: A fully documented, self-sustaining business framework and training library.
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2026 Hunter Newbold / Contentia Creative.</p>
-                <p class="mono text-sm">Serving SLC, Sandy, Park City, Provo & Ogden.</p>
+    <section id="skills" style="background: var(--bg-secondary);">
+        <div class="section-header">
+            <h2 class="section-title">The <span style="color: var(--honolulu-blue);">Armory</span></h2>
+        </div>
+        <div class="armory-grid">
+            <div class="skill-col">
+                <h3>Technical Implementation</h3>
+                <ul class="skill-list">
+                    <li><strong>LLMs</strong> <span>ChatGPT Plus, Gemini, Claude</span></li>
+                    <li><strong>Agents</strong> <span>Google Flow, Custom GPTs</span></li>
+                    <li><strong>API Tools</strong> <span>Postman, OpenRouter.ai</span></li>
+                    <li><strong>Automation</strong> <span>iOS Shortcuts, Python Scripts</span></li>
+                </ul>
             </div>
+            <div class="skill-col">
+                <h3>Enablement & Strategy</h3>
+                <ul class="skill-list">
+                    <li><strong>Documentation</strong> <span>SOPs, Brand Manuals</span></li>
+                    <li><strong>Frameworks</strong> <span>Lean Business Modeling</span></li>
+                    <li><strong>Onboarding</strong> <span>User Guides, L&D</span></li>
+                    <li><strong>Optimization</strong> <span>Local SEO, AEO Pipeline</span></li>
+                </ul>
+            </div>
+            <div class="skill-col">
+                <h3>Ops & Analytics</h3>
+                <ul class="skill-list">
+                    <li><strong>Project Mgmt</strong> <span>ClickUp, Linear, Slack</span></li>
+                    <li><strong>Data</strong> <span>Google Looker Studio</span></li>
+                    <li><strong>UX Analysis</strong> <span>Microsoft Clarity</span></li>
+                    <li><strong>Integration</strong> <span>Jotform Middleware</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2 class="footer-cta">Ready to drive revenue through technical innovation?</h2>
+        <p style="margin-bottom: 2rem; color: var(--silver);">Availability: Immediate start for Full-Time (W2) or Contract.<br>Open to Remote & Hybrid Roles.</p>
+        
+        <div class="contact-details">
+            <div>Hunter K. Newbold &bull; Salt Lake City, UT</div>
+            <div><a href="mailto:HunterKnewboldcc@Gmail.com">HunterKnewboldcc@Gmail.com</a></div>
+            <div><a href="tel:8018897181">801-889-7181</a></div>
+        </div>
+
+        <div class="social-links">
+            <a href="https://github.com/hunterknewboldcc-ship-it/Resume-Portfolio-Links/" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/hunter-newbold-3499483ab/" target="_blank">LinkedIn</a>
+            <a href="https://instagram.com/hunterknewbold" target="_blank">Instagram</a>
         </div>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script>
+        // Dark Mode Logic
+        const toggleBtn = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        // Check local storage or default to dark
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        updateIcon(savedTheme);
+
+        toggleBtn.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        function updateIcon(theme) {
+            toggleBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+    </script>
 </body>
 </html>
