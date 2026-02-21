@@ -1,0 +1,45 @@
+body {
+  background: #1a1d21;
+  color: #dce4ec;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+nav.navbar {
+  background: #111316;
+  color: #48a8f8;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+nav.navbar .nav-brand a {
+  color: #48a8f8;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+nav.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+nav.navbar .nav-links li a {
+  color: #dce4ec;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.04rem;
+  transition: color 0.13s;
+}
+nav.navbar .nav-links li a:hover {
+  color: #48a8f8;
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
