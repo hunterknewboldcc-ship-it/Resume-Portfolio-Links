@@ -1,0 +1,10 @@
+title: "Hunter Knewbold – Portfolio & Blog"
+description: "Personal portfolio, blog, and contact site"
+baseurl: "" # Leave empty for user.github.io root, set to "/repo" for project page
+url: "https://hunterknewboldcc.github.io"
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+markdown: kramdown
+permalink: pretty
